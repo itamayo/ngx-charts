@@ -19,6 +19,7 @@ var PieChartComponent = (function (_super) {
         _this.arcWidth = 0.25;
         _this.activeEntries = [];
         _this.tooltipDisabled = false;
+        _this.text = '';
         _this.select = new EventEmitter();
         _this.activate = new EventEmitter();
         _this.deactivate = new EventEmitter();
@@ -114,7 +115,7 @@ export { PieChartComponent };
 PieChartComponent.decorators = [
     { type: Component, args: [{
                 selector: 'ngx-charts-pie-chart',
-                template: "\n    <ngx-charts-chart\n      [view]=\"[width, height]\"\n      [showLegend]=\"legend\"\n      [legendOptions]=\"legendOptions\"\n      [activeEntries]=\"activeEntries\"\n      (legendLabelActivate)=\"onActivate($event)\"\n      (legendLabelDeactivate)=\"onDeactivate($event)\"\n      (legendLabelClick)=\"onClick($event)\">\n      <svg:g [attr.transform]=\"translation\" class=\"pie-chart chart\">\n        <svg:g ngx-charts-pie-series\n          [colors]=\"colors\"\n          [showLabels]=\"labels\"\n          [labelFormatting]=\"labelFormatting\"\n          [series]=\"data\"\n          [activeEntries]=\"activeEntries\"\n          [innerRadius]=\"innerRadius\"\n          [outerRadius]=\"outerRadius\"\n          [explodeSlices]=\"explodeSlices\"\n          [gradient]=\"gradient\"\n          [tooltipDisabled]=\"tooltipDisabled\"\n          [tooltipTemplate]=\"tooltipTemplate\"\n          [tooltipText]=\"tooltipText\"\n          (select)=\"onClick($event)\"\n          (activate)=\"onActivate($event)\"\n          (deactivate)=\"onDeactivate($event)\"\n        />\n\t  <svg:text\n            class=\"label percent-label\"\n            dy=\"-0.5em\"\n            x=\"0\"\n            y=\"5\"\n            [countTo]=\"series.percent\"\n            [countSuffix]=\"'%'\"\n            text-anchor=\"middle\">\n\t50%\n         </svg:text>\n\n      </svg:g>\n    </ngx-charts-chart>\n  ",
+                template: "\n    <ngx-charts-chart\n      [view]=\"[width, height]\"\n      [showLegend]=\"legend\"\n      [legendOptions]=\"legendOptions\"\n      [activeEntries]=\"activeEntries\"\n      (legendLabelActivate)=\"onActivate($event)\"\n      (legendLabelDeactivate)=\"onDeactivate($event)\"\n      (legendLabelClick)=\"onClick($event)\">\n      <svg:g [attr.transform]=\"translation\" class=\"pie-chart chart\">\n        <svg:g ngx-charts-pie-series\n          [colors]=\"colors\"\n          [showLabels]=\"labels\"\n          [labelFormatting]=\"labelFormatting\"\n          [series]=\"data\"\n          [activeEntries]=\"activeEntries\"\n          [innerRadius]=\"innerRadius\"\n          [outerRadius]=\"outerRadius\"\n          [explodeSlices]=\"explodeSlices\"\n          [gradient]=\"gradient\"\n          [tooltipDisabled]=\"tooltipDisabled\"\n          [tooltipTemplate]=\"tooltipTemplate\"\n          [tooltipText]=\"tooltipText\"\n          (select)=\"onClick($event)\"\n          (activate)=\"onActivate($event)\"\n          (deactivate)=\"onDeactivate($event)\"\n        />\n\t  <svg:text\n            class=\"label2 percent-label\"\n            dy=\"-0.5em\"\n            x=\"0\"\n            y=\"14\"\n            text-anchor=\"middle\">\n          {{text}} \n\t</svg:text>\n\n      </svg:g>\n    </ngx-charts-chart>\n  ",
                 styleUrls: [
                     '../common/base-chart.component.css',
                     './pie-chart.component.css'
@@ -137,6 +138,7 @@ PieChartComponent.propDecorators = {
     'tooltipDisabled': [{ type: Input },],
     'labelFormatting': [{ type: Input },],
     'tooltipText': [{ type: Input },],
+    'text': [{ type: Input },],
     'select': [{ type: Output },],
     'activate': [{ type: Output },],
     'deactivate': [{ type: Output },],

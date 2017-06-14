@@ -1,3 +1,7 @@
+.label2 {
+  font-weight: bold;
+  font-size: 18pt; }
+
 .pie-label {
   font-size: 11px;
   animation: 750ms ease-in fadeIn; }
@@ -7,6 +11,9 @@
     opacity: 0; }
   to {
     opacity: 1; } }
+  .pie-label .label {
+    font-weight: bold;
+    font-size: 18pt; }
 
 .pie-label-line {
   animation: 3s linear drawOut;

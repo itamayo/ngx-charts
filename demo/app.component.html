@@ -204,7 +204,7 @@
         [gradient]="gradient"
         [tooltipDisabled]="tooltipDisabled"
         [tooltipText]="pieTooltipText"
-        (select)="select($event)">
+        (select)="select($event)" text="50%">
       </ngx-charts-pie-chart>
       <ngx-charts-advanced-pie-chart
         *ngIf="chartType === 'advanced-pie-chart'"

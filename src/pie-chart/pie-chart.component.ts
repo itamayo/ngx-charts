@@ -42,15 +42,13 @@ import { BaseChartComponent } from '../common/base-chart.component';
           (deactivate)="onDeactivate($event)"
         />
 	  <svg:text
-            class="label percent-label"
+            class="label2 percent-label"
             dy="-0.5em"
             x="0"
-            y="5"
-            [countTo]="series.percent"
-            [countSuffix]="'%'"
+            y="14"
             text-anchor="middle">
-	50%
-         </svg:text>
+          {{text}} 
+	</svg:text>
 
       </svg:g>
     </ngx-charts-chart>
@@ -75,7 +73,7 @@ export class PieChartComponent extends BaseChartComponent {
   @Input() tooltipDisabled: boolean = false;
   @Input() labelFormatting: any;
   @Input() tooltipText: any;
-
+  @Input() text:string='';
   @Output() select = new EventEmitter();
   @Output() activate: EventEmitter<any> = new EventEmitter();
   @Output() deactivate: EventEmitter<any> = new EventEmitter();

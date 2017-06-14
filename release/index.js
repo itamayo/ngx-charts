@@ -2176,7 +2176,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, ".pie-label {\n  font-size: 11px;\n  -webkit-animation: 750ms ease-in fadeIn;\n          animation: 750ms ease-in fadeIn; }\n\n@-webkit-keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n.pie-label-line {\n  -webkit-animation: 3s linear drawOut;\n          animation: 3s linear drawOut;\n  stroke-dasharray: 100%;\n  transition: d 750ms; }\n\n@-webkit-keyframes drawOut {\n  from {\n    stroke-dashoffset: 100%; }\n  to {\n    stroke-dashoffset: 0; } }\n\n@keyframes drawOut {\n  from {\n    stroke-dashoffset: 100%; }\n  to {\n    stroke-dashoffset: 0; } }\n", ""]);
+exports.push([module.i, ".label2 {\n  font-weight: bold;\n  font-size: 18pt; }\n\n.pie-label {\n  font-size: 11px;\n  -webkit-animation: 750ms ease-in fadeIn;\n          animation: 750ms ease-in fadeIn; }\n\n@-webkit-keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n\n@keyframes fadeIn {\n  from {\n    opacity: 0; }\n  to {\n    opacity: 1; } }\n  .pie-label .label {\n    font-weight: bold;\n    font-size: 18pt; }\n\n.pie-label-line {\n  -webkit-animation: 3s linear drawOut;\n          animation: 3s linear drawOut;\n  stroke-dasharray: 100%;\n  transition: d 750ms; }\n\n@-webkit-keyframes drawOut {\n  from {\n    stroke-dashoffset: 100%; }\n  to {\n    stroke-dashoffset: 0; } }\n\n@keyframes drawOut {\n  from {\n    stroke-dashoffset: 100%; }\n  to {\n    stroke-dashoffset: 0; } }\n", ""]);
 
 // exports
 
@@ -16641,6 +16641,7 @@ var PieChartComponent = (function (_super) {
         _this.arcWidth = 0.25;
         _this.activeEntries = [];
         _this.tooltipDisabled = false;
+        _this.text = '';
         _this.select = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         _this.activate = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         _this.deactivate = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
@@ -16777,6 +16778,10 @@ __decorate([
     __metadata("design:type", Object)
 ], PieChartComponent.prototype, "tooltipText", void 0);
 __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
+    __metadata("design:type", String)
+], PieChartComponent.prototype, "text", void 0);
+__decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
     __metadata("design:type", Object)
 ], PieChartComponent.prototype, "select", void 0);
@@ -16795,7 +16800,7 @@ __decorate([
 PieChartComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'ngx-charts-pie-chart',
-        template: "\n    <ngx-charts-chart\n      [view]=\"[width, height]\"\n      [showLegend]=\"legend\"\n      [legendOptions]=\"legendOptions\"\n      [activeEntries]=\"activeEntries\"\n      (legendLabelActivate)=\"onActivate($event)\"\n      (legendLabelDeactivate)=\"onDeactivate($event)\"\n      (legendLabelClick)=\"onClick($event)\">\n      <svg:g [attr.transform]=\"translation\" class=\"pie-chart chart\">\n        <svg:g ngx-charts-pie-series\n          [colors]=\"colors\"\n          [showLabels]=\"labels\"\n          [labelFormatting]=\"labelFormatting\"\n          [series]=\"data\"\n          [activeEntries]=\"activeEntries\"\n          [innerRadius]=\"innerRadius\"\n          [outerRadius]=\"outerRadius\"\n          [explodeSlices]=\"explodeSlices\"\n          [gradient]=\"gradient\"\n          [tooltipDisabled]=\"tooltipDisabled\"\n          [tooltipTemplate]=\"tooltipTemplate\"\n          [tooltipText]=\"tooltipText\"\n          (select)=\"onClick($event)\"\n          (activate)=\"onActivate($event)\"\n          (deactivate)=\"onDeactivate($event)\"\n        />\n\t  <svg:text\n            class=\"label percent-label\"\n            dy=\"-0.5em\"\n            x=\"0\"\n            y=\"5\"\n            [countTo]=\"series.percent\"\n            [countSuffix]=\"'%'\"\n            text-anchor=\"middle\">\n\t50%\n         </svg:text>\n\n      </svg:g>\n    </ngx-charts-chart>\n  ",
+        template: "\n    <ngx-charts-chart\n      [view]=\"[width, height]\"\n      [showLegend]=\"legend\"\n      [legendOptions]=\"legendOptions\"\n      [activeEntries]=\"activeEntries\"\n      (legendLabelActivate)=\"onActivate($event)\"\n      (legendLabelDeactivate)=\"onDeactivate($event)\"\n      (legendLabelClick)=\"onClick($event)\">\n      <svg:g [attr.transform]=\"translation\" class=\"pie-chart chart\">\n        <svg:g ngx-charts-pie-series\n          [colors]=\"colors\"\n          [showLabels]=\"labels\"\n          [labelFormatting]=\"labelFormatting\"\n          [series]=\"data\"\n          [activeEntries]=\"activeEntries\"\n          [innerRadius]=\"innerRadius\"\n          [outerRadius]=\"outerRadius\"\n          [explodeSlices]=\"explodeSlices\"\n          [gradient]=\"gradient\"\n          [tooltipDisabled]=\"tooltipDisabled\"\n          [tooltipTemplate]=\"tooltipTemplate\"\n          [tooltipText]=\"tooltipText\"\n          (select)=\"onClick($event)\"\n          (activate)=\"onActivate($event)\"\n          (deactivate)=\"onDeactivate($event)\"\n        />\n\t  <svg:text\n            class=\"label2 percent-label\"\n            dy=\"-0.5em\"\n            x=\"0\"\n            y=\"14\"\n            text-anchor=\"middle\">\n          {{text}} \n\t</svg:text>\n\n      </svg:g>\n    </ngx-charts-chart>\n  ",
         styles: [
             __webpack_require__("./src/common/base-chart.component.scss"),
             __webpack_require__("./src/pie-chart/pie-chart.component.scss")
