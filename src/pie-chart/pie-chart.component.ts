@@ -49,6 +49,8 @@ import { BaseChartComponent } from '../common/base-chart.component';
             [countTo]="series.percent"
             [countSuffix]="'%'"
             text-anchor="middle">
+	50%
+         </svg:text>
 
       </svg:g>
     </ngx-charts-chart>
