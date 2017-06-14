@@ -20,6 +20,7 @@ import { BaseChartComponent } from '../common/base-chart.component';
       [showLegend]="legend"
       [legendOptions]="legendOptions"
       [activeEntries]="activeEntries"
+      [text]=""
       (legendLabelActivate)="onActivate($event)"
       (legendLabelDeactivate)="onDeactivate($event)"
       (legendLabelClick)="onClick($event)">
