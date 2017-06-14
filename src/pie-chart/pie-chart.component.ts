@@ -41,6 +41,15 @@ import { BaseChartComponent } from '../common/base-chart.component';
           (activate)="onActivate($event)"
           (deactivate)="onDeactivate($event)"
         />
+	  <svg:text
+            class="label percent-label"
+            dy="-0.5em"
+            x="0"
+            y="5"
+            [countTo]="series.percent"
+            [countSuffix]="'%'"
+            text-anchor="middle">
+
       </svg:g>
     </ngx-charts-chart>
   `,
