@@ -46,7 +46,7 @@ import { BaseChartComponent } from '../common/base-chart.component';
 	    style="font-size:{{textSize}}pt;"
             dy="-0.5em"
             x="0"
-            [attr.y]="{{textY}}"
+            [attr.y]="textY"
             text-anchor="middle">
           {{text}} 
 	</svg:text>
