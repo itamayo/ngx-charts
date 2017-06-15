@@ -42,7 +42,7 @@ import { BaseChartComponent } from '../common/base-chart.component';
           (deactivate)="onDeactivate($event)"
         />
 	  <svg:text
-            class="label2 percent-label"
+            class="percent-label"
             dy="-0.5em"
             x="0"
             [attr.y]="textY"
