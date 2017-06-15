@@ -43,10 +43,10 @@ import { BaseChartComponent } from '../common/base-chart.component';
         />
 	  <svg:text
             class="label2 percent-label"
-	    style="font-size:{{textSize}}pt;"
             dy="-0.5em"
             x="0"
             [attr.y]="textY"
+	    [attr.fontSize]="textSize"
             text-anchor="middle">
           {{text}} 
 	</svg:text>
