@@ -46,7 +46,7 @@ import { BaseChartComponent } from '../common/base-chart.component';
 	    style="font-size:{{textSize}}pt;"
             dy="-0.5em"
             x="0"
-            y="{{textY}}"
+            [attr.y]="{{textY}}"
             text-anchor="middle">
           {{text}} 
 	</svg:text>
@@ -76,7 +76,7 @@ export class PieChartComponent extends BaseChartComponent {
   @Input() tooltipText: any;
   @Input() text:string='';
   @Input() textSize:string='18pt';
-  @Input() textY:number=14;
+  @Input() textY:string="14";
   @Output() select = new EventEmitter();
   @Output() activate: EventEmitter<any> = new EventEmitter();
   @Output() deactivate: EventEmitter<any> = new EventEmitter();
