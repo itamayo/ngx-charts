@@ -14,6 +14,8 @@ export declare class PieChartComponent extends BaseChartComponent {
     labelFormatting: any;
     tooltipText: any;
     text: string;
+    textSize: string;
+    textY: number;
     select: EventEmitter<{}>;
     activate: EventEmitter<any>;
     deactivate: EventEmitter<any>;

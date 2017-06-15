@@ -19,6 +19,8 @@ import { BaseChartComponent } from '../common/base-chart.component';
       [view]="[width, height]"
       [showLegend]="legend"
       [legendOptions]="legendOptions"
+      [textSize]="textSize"
+      [textY]="textY"
       [activeEntries]="activeEntries"
       (legendLabelActivate)="onActivate($event)"
       (legendLabelDeactivate)="onDeactivate($event)"
@@ -43,9 +45,10 @@ import { BaseChartComponent } from '../common/base-chart.component';
         />
 	  <svg:text
             class="label2 percent-label"
+	    style="font-size:{{textSize}}pt;"
             dy="-0.5em"
             x="0"
-            y="14"
+            y="{{textY}}"
             text-anchor="middle">
           {{text}} 
 	</svg:text>
@@ -74,6 +77,8 @@ export class PieChartComponent extends BaseChartComponent {
   @Input() labelFormatting: any;
   @Input() tooltipText: any;
   @Input() text:string='';
+  @Input() textSize:string='18pt';
+  @Input() textY:number=14;
   @Output() select = new EventEmitter();
   @Output() activate: EventEmitter<any> = new EventEmitter();
   @Output() deactivate: EventEmitter<any> = new EventEmitter();
