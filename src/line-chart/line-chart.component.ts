@@ -410,8 +410,8 @@ export class LineChartComponent extends BaseChartComponent {
 
   @HostListener('mouseleave')
   hideCircles(): void {
-    this.hoveredVertical = null;
-    this.deactivateAll();
+    //this.hoveredVertical = null;
+  //  this.deactivateAll();
   }
 
   onClick(data, series?): void {
