@@ -7,6 +7,7 @@ export declare class CircleSeriesComponent implements OnChanges {
     xScale: any;
     yScale: any;
     colors: any;
+    circleColors: any[];
     scaleType: any;
     visibleValue: any;
     activeEntries: any[];

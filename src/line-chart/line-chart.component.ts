@@ -96,6 +96,7 @@ import { id } from '../utils/id';
               [yScale]="yScale"
               [colors]="colors"
               [data]="series"
+              [circleColors]='cColors'
               [scaleType]="scaleType"
               [visibleValue]="hoveredVertical"
               [activeEntries]="activeEntries"
@@ -172,7 +173,7 @@ export class LineChartComponent extends BaseChartComponent {
   @Input() roundDomains: boolean = false;
   @Input() tooltipDisabled: boolean = false;
   @Input() showSeriesOnHover: boolean = true;
-
+  @Input() cColors:any[];
   @Output() activate: EventEmitter<any> = new EventEmitter();
   @Output() deactivate: EventEmitter<any> = new EventEmitter();
 
@@ -405,7 +406,7 @@ export class LineChartComponent extends BaseChartComponent {
 
   updateHoveredVertical(item): void {
     this.hoveredVertical = item.value;
-    this.deactivateAll();
+  //  this.deactivateAll();
   }
 
   @HostListener('mouseleave')
@@ -433,7 +434,7 @@ export class LineChartComponent extends BaseChartComponent {
     } else {
       domain = this.yDomain;
     }
-
+    console.log(this.scheme, this.schemeType, domain, this.customColors);
     this.colors = new ColorHelper(this.scheme, this.schemeType, domain, this.customColors);
   }
 

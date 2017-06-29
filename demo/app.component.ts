@@ -4,6 +4,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Location, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import * as shape from 'd3-shape';
 import * as d3 from 'd3';
+import { ColorHelper } from '../src/common/color.helper';
 
 import { colorSets } from '../src/utils/color-sets';
 import { formatLabel } from '../src/common/label.helper';
@@ -34,7 +35,7 @@ function multiFormat(value) {
 export class AppComponent implements OnInit {
 
   version = APP_VERSION;
-
+  circleColors:any[];
   theme = 'dark';
   chartType: string;
   chartGroups: any[];
@@ -114,6 +115,7 @@ export class AppComponent implements OnInit {
 
   colorSets: any;
   colorScheme: any;
+
   schemeType: string = 'ordinal';
   selectedColorScheme: string;
   rangeFillOpacity: number = 0.15;
@@ -170,6 +172,7 @@ export class AppComponent implements OnInit {
 
   constructor(public location: Location) {
     this.mathFunction = this.getFunction();
+    this.circleColors =  [{value:3,color:"red"},{value:3000,color:"orange"},{value:5000,color:"green"}];
 
     Object.assign(this, {
       single,

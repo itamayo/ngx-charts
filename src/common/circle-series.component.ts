@@ -61,6 +61,7 @@ import { id } from '../utils/id';
         [tooltipTitle]="tooltipTemplate ? undefined : getTooltipText(circle)"
         [tooltipTemplate]="tooltipTemplate"
         [tooltipContext]="circle.data"
+
       />
     </svg:g>
   `,
@@ -83,6 +84,7 @@ export class CircleSeriesComponent implements OnChanges {
   @Input() xScale;
   @Input() yScale;
   @Input() colors;
+  @Input() circleColors:any[];
   @Input() scaleType;
   @Input() visibleValue;
   @Input() activeEntries: any[];
@@ -95,6 +97,7 @@ export class CircleSeriesComponent implements OnChanges {
 
   areaPath: any;
   circles: any[];
+//  cColors:any[];
 
   constructor(private location: LocationStrategy) {
   }
@@ -113,7 +116,7 @@ export class CircleSeriesComponent implements OnChanges {
     const pageUrl = this.location instanceof PathLocationStrategy
       ? this.location.path()
       : '';
-
+    var scope = this;
     return this.data.series.map((d, i) => {
       const value = d.value;
       const label = d.name;
@@ -151,7 +154,12 @@ export class CircleSeriesComponent implements OnChanges {
         } else {
           color = this.colors.getColor(seriesName);
         }
-
+        if (scope.circleColors){
+           console.log("circleColors",scope.circleColors);
+            for (var x in scope.circleColors){
+               if (scope.circleColors[x].value==value) color = scope.circleColors[x].color;
+            }
+        }
         const data = {
           series: seriesName,
           value,
