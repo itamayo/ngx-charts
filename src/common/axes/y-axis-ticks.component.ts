@@ -29,10 +29,10 @@ import { reduceTicks } from './ticks.helper';
           [style.font-size]="'12px'">
           {{trimLabel(tickFormat(tick))}}
         </svg:text>
-        <ellipse *ngIf="i==3 && score" fill="#A4FFFF" stroke="#A4FFFF" stroke-width="1.5" style="pointer-events:inherit" cx="-30" cy="0" id="svg_1" rx="10.5" ry="11" stroke-dasharray="none"></ellipse>
-        <ellipse *ngIf="i==2 && score" fill="yellow" stroke="yellow" stroke-width="1.5" style="pointer-events:inherit" cx="-30" cy="0" id="svg_1" rx="10.5" ry="11" stroke-dasharray="none"></ellipse>
-        <ellipse *ngIf="i==1 && score" fill="orange" stroke="orange" stroke-width="1.5" style="pointer-events:inherit" cx="-30" cy="0" id="svg_1" rx="10.5" ry="11" stroke-dasharray="none"></ellipse>
-        <ellipse *ngIf="i==0 && score" fill="red" stroke="red" stroke-width="1.5" style="pointer-events:inherit" cx="-30" cy="0" id="svg_1" rx="10.5" ry="11" stroke-dasharray="none"></ellipse>
+        <ellipse *ngIf="i==4 && score" fill="#A4FFFF" stroke="#A4FFFF" stroke-width="1.5" style="pointer-events:inherit" cx="-30" cy="0" id="svg_1" rx="10.5" ry="11" stroke-dasharray="none"></ellipse>
+        <ellipse *ngIf="i==3 && score" fill="yellow" stroke="yellow" stroke-width="1.5" style="pointer-events:inherit" cx="-30" cy="0" id="svg_1" rx="10.5" ry="11" stroke-dasharray="none"></ellipse>
+        <ellipse *ngIf="i==2 && score" fill="orange" stroke="orange" stroke-width="1.5" style="pointer-events:inherit" cx="-30" cy="0" id="svg_1" rx="10.5" ry="11" stroke-dasharray="none"></ellipse>
+        <ellipse *ngIf="i==1 && score" fill="red" stroke="red" stroke-width="1.5" style="pointer-events:inherit" cx="-30" cy="0" id="svg_1" rx="10.5" ry="11" stroke-dasharray="none"></ellipse>
 
       </svg:g>
     </svg:g>
