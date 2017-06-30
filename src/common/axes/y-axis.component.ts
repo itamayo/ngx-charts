@@ -26,6 +26,7 @@ import { YAxisTicksComponent } from './y-axis-ticks.component';
         [showGridLines]="showGridLines"
         [gridLineWidth]="dims.width"
         [height]="dims.height"
+        [score]="score"
         (dimensionsChanged)="emitTicksWidth($event)"
       />
       <svg:g ngx-charts-axis-label
@@ -51,7 +52,7 @@ export class YAxisComponent implements OnChanges {
   @Input() yAxisTickInterval;
   @Input() yAxisTickCount: any;
   @Input() yOrient: string = 'left';
-  
+  @Input() score:boolean;
   @Output() dimensionsChanged = new EventEmitter();
 
   yAxisClassName: string = 'y axis';

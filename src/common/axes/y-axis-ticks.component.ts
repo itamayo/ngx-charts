@@ -17,10 +17,10 @@ import { reduceTicks } from './ticks.helper';
   selector: 'g[ngx-charts-y-axis-ticks]',
   template: `
     <svg:g #ticksel>
-      <svg:g *ngFor="let tick of ticks" class="tick"
+      <svg:g *ngFor="let tick of ticks let i = index" [attr.data-index]='i' class="tick"
         [attr.transform]="transform(tick)" >
         <title>{{tickFormat(tick)}}</title>
-        <svg:text
+        <svg:text *ngIf="!score"
           stroke-width="0.01"
           [attr.dy]="dy"
           [attr.x]="x1"
@@ -29,6 +29,11 @@ import { reduceTicks } from './ticks.helper';
           [style.font-size]="'12px'">
           {{trimLabel(tickFormat(tick))}}
         </svg:text>
+        <ellipse *ngIf="i==3 && score" fill="#A4FFFF" stroke="#A4FFFF" stroke-width="1.5" style="pointer-events:inherit" cx="-30" cy="0" id="svg_1" rx="10.5" ry="11" stroke-dasharray="none"></ellipse>
+        <ellipse *ngIf="i==2 && score" fill="yellow" stroke="yellow" stroke-width="1.5" style="pointer-events:inherit" cx="-30" cy="0" id="svg_1" rx="10.5" ry="11" stroke-dasharray="none"></ellipse>
+        <ellipse *ngIf="i==1 && score" fill="orange" stroke="orange" stroke-width="1.5" style="pointer-events:inherit" cx="-30" cy="0" id="svg_1" rx="10.5" ry="11" stroke-dasharray="none"></ellipse>
+        <ellipse *ngIf="i==0 && score" fill="red" stroke="red" stroke-width="1.5" style="pointer-events:inherit" cx="-30" cy="0" id="svg_1" rx="10.5" ry="11" stroke-dasharray="none"></ellipse>
+
       </svg:g>
     </svg:g>
     <svg:g *ngFor="let tick of ticks"
@@ -56,7 +61,7 @@ export class YAxisTicksComponent implements OnChanges, AfterViewInit {
   @Input() showGridLines = false;
   @Input() gridLineWidth;
   @Input() height;
-
+  @Input() score:boolean;
   @Output() dimensionsChanged = new EventEmitter();
 
   innerTickSize: any = 6;
@@ -109,7 +114,7 @@ export class YAxisTicksComponent implements OnChanges, AfterViewInit {
 
     scale = this.scale;
     this.ticks = this.getTicks();
-
+    console.log(this.ticks,"ticks");
     if (this.tickFormatting) {
       this.tickFormat = this.tickFormatting;
     } else if (scale.tickFormat) {
