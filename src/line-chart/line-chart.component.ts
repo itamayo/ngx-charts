@@ -63,7 +63,7 @@ import { id } from '../utils/id';
           [showLabel]="showYAxisLabel"
           [labelText]="yAxisLabel"
           [tickFormatting]="yAxisTickFormatting"
-          [score]="score"
+          [score]="scoreOn"
           (dimensionsChanged)="updateYAxisWidth($event)">
         </svg:g>
         <svg:g [attr.clip-path]="clipPath">
@@ -175,7 +175,7 @@ export class LineChartComponent extends BaseChartComponent {
   @Input() tooltipDisabled: boolean = false;
   @Input() showSeriesOnHover: boolean = true;
   @Input() cColors:any[];
-  @Input() score:boolean;
+  @Input() scoreOn;
   @Output() activate: EventEmitter<any> = new EventEmitter();
   @Output() deactivate: EventEmitter<any> = new EventEmitter();
 

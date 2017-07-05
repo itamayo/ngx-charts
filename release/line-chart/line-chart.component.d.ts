@@ -25,7 +25,7 @@ export declare class LineChartComponent extends BaseChartComponent {
     tooltipDisabled: boolean;
     showSeriesOnHover: boolean;
     cColors: any[];
-    score: boolean;
+    scoreOn: any;
     activate: EventEmitter<any>;
     deactivate: EventEmitter<any>;
     tooltipTemplate: TemplateRef<any>;
